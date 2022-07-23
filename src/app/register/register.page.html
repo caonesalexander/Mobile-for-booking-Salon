@@ -1,0 +1,101 @@
+
+
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Register Form</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div class="login-form ion-padding">
+
+    <div class="form-input">
+      <ion-icon name="people-outline"></ion-icon>
+      <ion-item>
+        <ion-label position="floating">Customer ID</ion-label>
+        <ion-input type="text" [(ngModel)]="customerID" [value]="random()" [disabled]="true"></ion-input>
+      </ion-item>
+    </div>
+
+    <div class="form-input">
+      <ion-icon name="people-outline"></ion-icon>
+      <ion-item>
+        <ion-label position="floating">Lastname</ion-label>
+        <ion-input type="text" [(ngModel)]="lastname"></ion-input>
+      </ion-item>
+    </div>
+
+    <div class="form-input">
+      <ion-icon name="people-outline"></ion-icon>
+      <ion-item>
+        <ion-label position="floating">Firstname</ion-label>
+        <ion-input type="text" [(ngModel)]="firstname"></ion-input>
+      </ion-item>
+    </div>
+
+
+    <div class="form-input">
+      <ion-icon name="people-outline"></ion-icon>
+      <ion-item>
+        <ion-label position="floating">Middlename</ion-label>
+        <ion-input type="text" [(ngModel)]="middlename"></ion-input>
+      </ion-item>
+    </div>
+
+    <div class="form-input">
+      <ion-icon name="people-outline"></ion-icon>
+      <ion-item>
+        <ion-label position="floating">Birth Date</ion-label>
+        <ion-input type="text" [(ngModel)]="birth"></ion-input>
+      </ion-item>
+    </div>
+
+    <div class="form-input">
+      <ion-icon name="person-outline"></ion-icon>
+      <ion-item>
+        <ion-label position="floating">Email</ion-label>
+        <ion-input type="text" [(ngModel)]="email"></ion-input>
+      </ion-item>
+    </div>
+
+    <div class="form-input">
+      <ion-icon name="person-outline"></ion-icon>
+      <ion-item>
+        <ion-label position="floating">Address</ion-label>
+        <ion-input type="text" [(ngModel)]="address"></ion-input>
+      </ion-item>
+    </div>
+
+    <div class="form-input">
+      <ion-icon name="person-outline"></ion-icon>
+      <ion-item>
+        <ion-label position="floating">Contact No.</ion-label>
+        <ion-input type="text" [(ngModel)]="contact"></ion-input>
+      </ion-item>
+    </div>
+
+    <div class="form-input">
+      <ion-icon name="lock-closed-outline"></ion-icon>
+      <ion-item>
+        <ion-label position="floating">Password</ion-label>
+        <ion-input type="password" [(ngModel)]="pass"></ion-input>
+      </ion-item>
+    </div>
+
+    <div class="form-input">
+      <ion-icon name="alert-outline"></ion-icon>
+      <ion-item>
+        <ion-label position="floating">Confrim Password</ion-label>
+        <ion-input type="password" ></ion-input>
+      </ion-item>
+    </div>
+
+  </div>
+
+  <div>
+    <ion-button expand="block" padding color="tertiary" class="submit"  (click)="register()">Register</ion-button>
+    <ion-button expand="block" padding color="tertiary" fill="outline" (click)="formLogin()">Sign in</ion-button>
+  </div>
+
+</ion-content>

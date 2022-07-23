@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Login Form</ion-title>
+
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content>
+
+  <div class="login-section ion-padding">
+    <div class="heading ion-padding">
+      <img src="/assets/hairscape.jpg" alt="logo" style="height:130px">
+    </div>
+
+    <div class="login-form ion-padding">
+      <div class="form-input">
+        <ion-icon name="mail-outline"></ion-icon>
+        <ion-item>
+          <ion-label position="floating">Email</ion-label>
+          <ion-input type="email"></ion-input>
+        </ion-item>
+      </div>
+
+      <div class="form-input">
+        <ion-icon name="lock-closed-outline"></ion-icon>
+        <ion-item>
+          <ion-label position="floating">Password</ion-label>
+          <ion-input type="password"></ion-input>
+        </ion-item>
+      </div>
+
+    </div>
+    <div class="action-button ion-padding">
+      <ion-button class="login-button" expand="block" padding color="tertiary" (click)="booking()">Sign in</ion-button>
+      <!-- <p style="color:#000;">Forgot password?</p> -->
+      <ion-button class="signup-button" expand="block" padding color="tertiary" fill="outline" (click)="regForm()">Register</ion-button>
+    </div>
+  </div>
+
+</ion-content>

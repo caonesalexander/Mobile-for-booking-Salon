@@ -1,0 +1,132 @@
+// .login-section {
+//   height: 74vh;
+//   width: 100%;
+//   max-width: 500px;
+//   background: #fff;
+//   right: 0;
+//   left: 0;
+//   bottom: 0;
+//   position: fixed;
+//   margin: auto;
+//   border-top-left-radius: 46px;
+//   border-top-right-radius: 46px;
+
+//   .heading {
+//     margin-top: 20px;
+//     img{
+//       height:130px;
+//       margin-left: 23%;
+//     }
+
+//     p {
+//       margin-top: 20px;
+//       font-size: 1rem;
+//       color:#7b7b7b;
+//     }
+//   }
+
+//   .login-form {
+//     .form-input {
+//       position: relative;
+//       margin-bottom: 10px;
+//       ion-item:part(native) {
+//         padding-left: 0;
+//       }
+
+//       ion-icon{
+//         position: absolute;
+//         top: 20px;
+//         z-index: 2;
+//         font-size: 1.2rem;
+//         left: 5px;
+//       }
+//       ion-label{
+//         position: absolute;
+//         margin-left: 35px;
+//         font-weight: bolder;
+//         font-size: 0.8rem;
+//         top: 3px;
+//       }
+//       ion-input{
+//         font-size: 0.9rem;
+//         --padding-start: 36px;
+//         --padding-top: 36px;
+//         color: #7b7b7b;
+//       }
+//     }
+//   }
+// }
+
+.form-input {
+  margin-top: 20px;
+  text-decoration-line: none;
+  ion-input {
+    font-size: small;
+  }
+  ion-label {
+    font-size: small;
+    color: gray;
+  }
+  ion-select {
+  font-size: small;
+  }
+}
+
+ion-col > div {
+  background-color: #f7f7f7;
+  border: solid 1px #ddd;
+  padding: 10px;
+}
+
+ion-button {
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top: 20px;
+}
+
+.container {
+  background-color: #fff;
+  height: 40px;
+  width: 100%;
+}
+
+  // position: fixed;
+  // top: 75px;
+  // align-content: center;
+  // left:auto;
+  // text-decoration: none;
+  // color:gray;
+  // text-align: center;
+  // border: 0px;
+  // padding: 8px;
+  // width: auto;
+  // font-size:medium;
+
+  .userName {
+    padding:1em;
+    text-align: center;
+    display:inline-block;
+    text-decoration: none ;
+    margin:0 auto;
+
+    // -webkit-transition: all 0.2s ease-in-out;
+    // -moz-transition: all 0.2s ease-in-out;
+    // -ms-transition: all 0.2s ease-in-out;
+    // -o-transition: all 0.2s ease-in-out;
+    // transition: all 0.2s ease-in-out;
+}
+
+.user {
+  width: 100%;
+  text-align: center;
+  text-decoration: none;
+}
+
+// .notif ion-icon{
+//   height: 50px;
+//   position: fixed;
+//   right: 50%;
+//   top: 80px;
+// }
+
+
