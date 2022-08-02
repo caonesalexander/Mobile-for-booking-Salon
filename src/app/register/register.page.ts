@@ -43,7 +43,7 @@ export class RegisterPage implements OnInit {
 
     };
 
-    this.http.post('http://192.168.1.35/RestAPI/Registration.php', JSON.stringify(data)).subscribe(
+    this.http.post('http://192.168.1.111/RestAPI/Registration.php', JSON.stringify(data)).subscribe(
       (response: any) => {
         if(response.resp === 'success'){
           alert('You now Registered');

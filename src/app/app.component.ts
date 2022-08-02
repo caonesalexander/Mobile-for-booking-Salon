@@ -20,18 +20,18 @@ export class AppComponent {
   }
 
   initializeApp() {
-    this.platform.ready().then(() => {
-      this.statusBar.styleDefault();
-      this.splashScreen.hide();
-    });
+    // this.platform.ready().then(() => {
+    //   this.statusBar.styleDefault();
+    //   this.splashScreen.hide();
+    // });
 
-    this.storage.get('storage_session').then((res) => {
-      if(res==null) {
-        this.navctrl.navigateRoot('/login');
-      }else {
-        this.navctrl.navigateRoot('/home');
-      }
+    // this.storage.get('storage_session').then((res) => {
+    //   if(res==null) {
+    //     this.navctrl.navigateRoot('/login');
+    //   }else {
+    //     this.navctrl.navigateRoot('/home');
+    //   }
 
-    });
+    // });
   }
 }

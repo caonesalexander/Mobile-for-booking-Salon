@@ -11,7 +11,7 @@
 
     <div class="user">
       <div class="userName">
-        <a routerLink="/profile"class="button">User Name</a>
+        <a routerLink="/profile" class="button">User Name</a>
       </div>
 
     </div>
@@ -25,14 +25,14 @@
     <h6 style="font-weight:bold ;">Customer Detail</h6>
     <div class="form-input">
       <ion-item>
-      <ion-input type="text" placeholder="Fullname"></ion-input>
+        <ion-input type="text" placeholder="Fullname"></ion-input>
       </ion-item>
     </div>
 
 
     <div class="form-input">
       <ion-item>
-          <ion-input type="text" placeholder="Address"></ion-input>
+        <ion-input type="text" placeholder="Address"></ion-input>
       </ion-item>
     </div>
 
@@ -60,62 +60,59 @@
       <ion-modal trigger="open-modal">
         <ng-template>
           <ion-content>
-            <ion-datetime
-      #datetime
-      [value]="dateValue" size="cover"
-      (ionChange)="dateChanged(datetime.value)"
-      showDefaultButtons="true"
-      (ionCancel)="showPicker = false;">
+            <ion-datetime #datetime [value]="dateValue" size="cover" (ionChange)="dateChanged(datetime.value)" showDefaultButtons="true" (ionCancel)="showPicker = false;">
 
-      </ion-datetime>
+            </ion-datetime>
           </ion-content>
         </ng-template>
       </ion-modal>
 
+    </div>
+
+
+    <h6 style="font-weight:bold ;">Stylist Name</h6>
+
+    <div class="form-input">
+      <ion-item *ngFor="let employee of employee;" lines="none">
+        <ion-label>{{ employee.employee_lastname}}, {{ employee.employee_firstname}} </ion-label>
+        <input type="radio" id="{{employee.id}}" name="radio" slot="end" value="{{ employee.employee_lastname}}, {{ employee.employee_firstname}}">
+      </ion-item>
+    </div>
+
+    <h6 style="font-weight:bold ;">Services</h6>
+
+    <div class="form-input">
+
+      <ion-item *ngFor="let services of services;" lines="none">
+
+        <ion-item lines="none">
+          <ion-checkbox color="primary" checked slot="start"></ion-checkbox>
+          <ion-label>{{ services.service_name }}</ion-label>
+        </ion-item>
+
+        <!-- <ion-item>
+          <ion-checkbox color="dark" checked slot="start"></ion-checkbox>
+          <ion-label>Service 2</ion-label>
+        </ion-item>
+
+        <ion-item>
+          <ion-checkbox color="dark" checked slot="start"></ion-checkbox>
+          <ion-label>Service 3</ion-label>
+        </ion-item>
+
+        <ion-item>
+          <ion-checkbox color="dark" checked slot="start"></ion-checkbox>
+          <ion-label>Service 4</ion-label>
+        </ion-item> -->
+
+      </ion-item>
+
+
+    </div>
+
+    <ion-button class="book-button" expand="block" padding color="tertiary">Book an Appointment</ion-button>
+
   </div>
-
-
-  <h6 style="font-weight:bold ;">Stylist</h6>
-
-  <div class="form-input">
-    <ion-item>
-      <ion-label>Stylist Name</ion-label>
-      <ion-select>
-        <ion-select-option class="sn" value="Person1">Person1</ion-select-option>
-        <ion-select-option class="sn" value="Person2">Person2</ion-select-option>
-        <ion-select-option class="sn" value="Person3">Person3</ion-select-option>
-        <ion-select-option class="sn" value="Person4">Person4</ion-select-option>
-      </ion-select>
-    </ion-item>
-  </div>
-
-  <h6 style="font-weight:bold ;">Services</h6>
-
-  <div class="form-input">
-    <ion-item>
-      <ion-checkbox color="dark" checked slot="start"></ion-checkbox>
-      <ion-label>Service 1</ion-label>
-    </ion-item>
-
-    <ion-item>
-      <ion-checkbox color="dark" checked slot="start"></ion-checkbox>
-      <ion-label>Service 2</ion-label>
-    </ion-item>
-
-    <ion-item>
-      <ion-checkbox color="dark" checked slot="start"></ion-checkbox>
-      <ion-label>Service 3</ion-label>
-    </ion-item>
-
-    <ion-item>
-      <ion-checkbox color="dark" checked slot="start"></ion-checkbox>
-      <ion-label>Service 4</ion-label>
-    </ion-item>
-  </div>
-
-  <ion-button class="book-button" expand="block" padding color="tertiary">Book an Appointment</ion-button>
-
-</div>
 
 
 
