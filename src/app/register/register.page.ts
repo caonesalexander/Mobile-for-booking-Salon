@@ -5,6 +5,7 @@ import { AlertController, LoadingController, ToastController } from '@ionic/angu
 import { resolve } from 'dns';
 import { promise } from 'protractor';
 import { Action } from 'rxjs/internal/scheduler/Action';
+import { Z_BLOCK } from 'zlib';
 
 //import { AccessProviders } from '../../providers/access-providers'
 @Component({
@@ -23,11 +24,13 @@ export class RegisterPage implements OnInit {
   public email: any;
   public pass: any;
   public contact: any;
-
+  public confirm: any;
+  myRand: number;
   constructor( private router: Router,
-    private http: HttpClient ) {}
+    private http: HttpClient,
+    private alertController: AlertController ) {}
 
-  register() {
+async register() {
     const headers = new Headers();
     headers.append('Content-Type', 'application/json');
     const data = {
@@ -40,30 +43,93 @@ export class RegisterPage implements OnInit {
       address: this.address,
       email: this.email,
       contact: this.contact,
+      confirm: this.confirm,
 
     };
 
-    this.http.post('http://192.168.1.111/RestAPI/Registration.php', JSON.stringify(data)).subscribe(
-      (response: any) => {
+    this.http.post('http://localhost/RestAPI/Registration.php', JSON.stringify(data)).subscribe(
+     async (response: any) => {
+
         if(response.resp === 'success'){
-          alert('You now Registered');
-        } else {
-          alert('Invalid, Please try again.');
+          const alert = await this.alertController.create({
+            header: 'Registered',
+            subHeader: 'You may now login in to your account',
+            message: 'Goodluck',
+            buttons: ['OK'],
+          });
+          this.router.navigate(['/login']);
+          await alert.present();
+
+          this.customerID = '';
+          this.lastname = '';
+          this.firstname = '';
+          this.middlename = '';
+          this.birth = '';
+          this.pass = '';
+          this.address = '';
+          this.email = '';
+          this.contact = '';
+          this.confirm = '';
+
+        }
+        if(response.resp === 'invalid') {
+
+          const alert = await this.alertController.create({
+            header: 'Invalid to Register',
+            subHeader: 'The name you use is already registered',
+            message: 'Try Again!!',
+            buttons: ['OK'],
+          });
+          await alert.present();
+          this.lastname = '';
+          this.firstname = '';
+        }
+
+        if(response.resp === 'fail') {
+          const alert = await this.alertController.create({
+            header: 'Invalid to Register',
+            subHeader: 'Email address and password is already taken',
+            message: 'Please use another email and password',
+            buttons: ['OK'],
+          });
+          await alert.present();
+          this.email = '';
+          this.pass = '';
+        }
+
+        if(response.resp === 'confirm') {
+          const alert = await this.alertController.create({
+            header: 'Invalid to Register',
+            subHeader: 'Please Confirm your password',
+            message: 'Try Again!!',
+            buttons: ['OK'],
+          });
+          await alert.present();
+          this.pass = '';
+          this.confirm = '';
+        }
+
+        if(response.resp === 'none') {
+          const alert = await this.alertController.create({
+            header: 'Invalid to Register',
+            subHeader: 'Please fill in all missing field',
+            message: 'Try Again!!',
+            buttons: ['OK'],
+          });
+          await alert.present();
         }
       },
-      (error) => {
-        alert(error.message);
+      async (_error: any) => {
+
+        const alert = await this.alertController.create({
+          header: 'Invalid to Register',
+          subHeader: 'Please fill in all missing field',
+          message: 'Try Again!!',
+          buttons: ['OK'],
+        });
+        await alert.present();
       });
 
-      this.customerID = ' ';
-      this.lastname = ' ';
-      this.firstname = ' ';
-      this.middlename = ' ';
-      this.birth = ' ';
-      this.pass = ' ';
-      this.address = ' ';
-      this.email = ' ';
-      this.contact = ' ';
   }
 
 
@@ -72,9 +138,14 @@ export class RegisterPage implements OnInit {
     this.router.navigate(['/login']);
   }
 
-  random() {
-    return (Math.floor(100000 + Math.random() * 900000));
-  }
+  ionViewDidEnter() {
+    this.myRand=this.random();
+   }
+
+  random(): number {
+    const rand = Math.floor(Math.random()*900000)+1;
+    return rand;
+ }
 
   ngOnInit() {
   }

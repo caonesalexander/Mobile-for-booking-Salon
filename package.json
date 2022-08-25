@@ -27,6 +27,7 @@
     "@ionic/angular": "^6.1.12",
     "@ionic/storage": "^2.3.1",
     "date-fns": "^2.28.0",
+    "react-multiple-select-dropdown-lite": "^2.0.5",
     "rxjs": "^6.6.7",
     "rxjs-compat": "^6.6.7",
     "tslib": "^2.2.0",

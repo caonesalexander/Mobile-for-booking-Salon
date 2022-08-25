@@ -18,7 +18,7 @@
         <ion-icon name="mail-outline"></ion-icon>
         <ion-item>
           <ion-label position="floating">Email</ion-label>
-          <ion-input type="email" ></ion-input>
+          <ion-input [(ngModel)]="email" required=""type="email" ></ion-input>
         </ion-item>
       </div>
 
@@ -26,15 +26,18 @@
         <ion-icon name="lock-closed-outline"></ion-icon>
         <ion-item>
           <ion-label position="floating">Password</ion-label>
-          <ion-input type="password"></ion-input>
+          <ion-input [(ngModel)]="pass" [required]="true" type="password"></ion-input>
         </ion-item>
       </div>
 
     </div>
+
     <div class="action-button ion-padding">
-      <ion-button class="login-button" expand="block" padding color="tertiary" (click)="booking()">Sign in</ion-button>
+
+        <ion-button class="login-button" expand="block" padding color="tertiary" (click)="login()">Sign in</ion-button>
       <!-- <p style="color:#000;">Forgot password?</p> -->
       <ion-button class="signup-button" expand="block" padding color="tertiary" fill="outline" (click)="regForm()">Register</ion-button>
+
     </div>
   </div>
 

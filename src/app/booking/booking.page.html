@@ -23,12 +23,34 @@
 
   <div class="book-form ion-padding">
     <h6 style="font-weight:bold ;">Customer Detail</h6>
+
     <div class="form-input">
-      <ion-item>
-        <ion-input type="text" placeholder="Fullname"></ion-input>
-      </ion-item>
+
+        <ion-input hidden="true" [(ngModel)]="id" value="{{myRand}}" placeholder="id"></ion-input>
+
     </div>
 
+    <div class="form-input">
+
+        <ion-input hidden="true" [(ngModel)]="book_id" value="{{myRand}}" placeholder="book_id"></ion-input>
+
+    </div>
+
+    <!-- <div class="form-input">
+
+      <ion-item *ngFor="let customers of customers;">
+        <ion-label>{{customers.customer_ID}}</ion-label>
+        <ion-input [(ngModel)]="customer_ID" value="{{customers.customer_ID}}"></ion-input>
+      </ion-item>
+
+    </div> -->
+
+    <div class="form-input">
+      <ion-item>
+        <!-- <ion-label>{{customers.last_name}}, {{customers.first_name}} {{customers.middle_name}}</ion-label> -->
+        <ion-input [(ngModel)]="fullname" type="text" value=""></ion-input>
+      </ion-item>
+    </div>
 
     <div class="form-input">
       <ion-item>
@@ -39,7 +61,7 @@
 
     <div class="form-input">
       <ion-item>
-        <ion-input type="text" placeholder="Contact No."></ion-input>
+        <ion-input [(ngModel)]="contact" type="text" placeholder="Contact No."></ion-input>
       </ion-item>
     </div>
 
@@ -60,7 +82,7 @@
       <ion-modal trigger="open-modal">
         <ng-template>
           <ion-content>
-            <ion-datetime #datetime [value]="dateValue" size="cover" (ionChange)="dateChanged(datetime.value)" showDefaultButtons="true" (ionCancel)="showPicker = false;">
+            <ion-datetime #datetime [(ngModel)]="date" [value]="dateValue" size="cover" (ionChange)="dateChanged(datetime.value)" showDefaultButtons="true" (ionCancel)="showPicker = false;">
 
             </ion-datetime>
           </ion-content>
@@ -75,7 +97,7 @@
     <div class="form-input">
       <ion-item *ngFor="let employee of employee;" lines="none">
         <ion-label>{{ employee.employee_lastname}}, {{ employee.employee_firstname}} </ion-label>
-        <input type="radio" id="{{employee.id}}" name="radio" slot="end" value="{{ employee.employee_lastname}}, {{ employee.employee_firstname}}">
+        <input type="radio" [(ngModel)]="stylist" id="{{employee.id}}" name="radio" slot="end" value="{{ employee.employee_lastname}}, {{ employee.employee_firstname}}">
       </ion-item>
     </div>
 
@@ -83,38 +105,19 @@
 
     <div class="form-input">
 
-      <ion-item *ngFor="let services of services;" lines="none">
-
-        <ion-item lines="none">
-          <ion-checkbox color="primary" checked slot="start"></ion-checkbox>
-          <ion-label>{{ services.service_name }}</ion-label>
-        </ion-item>
-
-        <!-- <ion-item>
-          <ion-checkbox color="dark" checked slot="start"></ion-checkbox>
-          <ion-label>Service 2</ion-label>
-        </ion-item>
-
-        <ion-item>
-          <ion-checkbox color="dark" checked slot="start"></ion-checkbox>
-          <ion-label>Service 3</ion-label>
-        </ion-item>
-
-        <ion-item>
-          <ion-checkbox color="dark" checked slot="start"></ion-checkbox>
-          <ion-label>Service 4</ion-label>
-        </ion-item> -->
-
+      <ion-item>
+        <ion-select placeholder="Select Service" [multiple]="true" [(ngModel)]="service">
+          <ion-select-option value=" Warts Removal">Warts Removal</ion-select-option>
+          <ion-select-option value=" Hair Salon">Hair Salon</ion-select-option>
+          <ion-select-option value=" Eyelash Extension">Eyelash Extension</ion-select-option>
+        </ion-select>
       </ion-item>
-
 
     </div>
 
-    <ion-button class="book-button" expand="block" padding color="tertiary">Book an Appointment</ion-button>
+    <ion-button class="book-button" expand="block" padding color="tertiary" (click)="book()">Book an Appointment</ion-button>
 
   </div>
-
-
 
 
 </ion-content>

@@ -28,5 +28,14 @@ export class ApiService {
     return this.http.get('http://localhost/RestAPI/getService.php');
   }
 
+  getCustomer() {
+    return this.http.get('http://localhost/RestAPI/getCustomer.php');
+  }
+
+  getStudent(){
+    return this.http.get('http://localhost/RestAPI/getName.php');
+
+  }
+
 }
 
